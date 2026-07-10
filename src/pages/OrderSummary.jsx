@@ -1,13 +1,13 @@
 import { useLocation, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { CheckCircle, ArrowRight } from 'lucide-react';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function OrderSummary() {
   const { clearCart } = useCart();
   const location = useLocation();
   const orderData = location.state?.order;
-  const orderId = useMemo(() => Math.floor(Math.random() * 1000000), []);
+  const [orderId] = useState(() => Math.floor(Math.random() * 1000000));
 
   // Clear cart upon successful order load. 
   // Normally this happens in checkout action, but doing here for realism.
@@ -67,3 +67,4 @@ export default function OrderSummary() {
     </div>
   );
 }
+

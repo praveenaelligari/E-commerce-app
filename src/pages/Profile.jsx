@@ -1,6 +1,6 @@
 import { useAuth } from '../context/AuthContext';
 import { motion } from 'framer-motion';
-import { User, Mail, LogOut, Package, MapPin, CreditCard } from 'lucide-react';
+import { Mail, LogOut, Package, MapPin, CreditCard } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Profile() {
@@ -68,3 +68,4 @@ export default function Profile() {
     </div>
   );
 }
+

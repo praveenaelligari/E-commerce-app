@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Store, ShieldCheck, Heart, Truck } from 'lucide-react';
 
@@ -61,4 +60,5 @@ export default function About() {
     </div>
   );
 }
+
 

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { products as allProducts, getCategories } from '../data/products';
 import { motion } from 'framer-motion';
 import { ShoppingCart, Search, Filter } from 'lucide-react';
@@ -88,13 +88,13 @@ export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const categories = getCategories();
-  const filteredProducts = useMemo(() => {
+  const filteredProducts = (() => {
     return allProducts.filter(p => {
       const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase()) || p.brand.toLowerCase().includes(search.toLowerCase());
       const matchesCategory = selectedCategory === 'All' || p.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
-  }, [search, selectedCategory]);
+  })();
 
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -174,3 +174,4 @@ export default function Products() {
     </div>
   );
 }
+

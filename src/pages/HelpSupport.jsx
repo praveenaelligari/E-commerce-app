@@ -1,4 +1,3 @@
-import React from 'react';
 import { MessageSquare, Phone, Mail, HelpCircle } from 'lucide-react';
 
 export default function HelpSupport() {
@@ -47,3 +46,4 @@ export default function HelpSupport() {
     </div>
   );
 }
+

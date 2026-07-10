@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { UserPlus, LogIn } from 'lucide-react';
 
 export default function Auth({ setPage }) {
@@ -52,3 +52,4 @@ export default function Auth({ setPage }) {
     </div>
   );
 }
+

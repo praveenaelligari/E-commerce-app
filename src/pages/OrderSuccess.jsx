@@ -1,4 +1,3 @@
-import React from 'react';
 import { CheckCircle, Home } from 'lucide-react';
 
 export default function OrderSuccess({ orderDetails, setPage, clearCart }) {
@@ -46,3 +45,4 @@ export default function OrderSuccess({ orderDetails, setPage, clearCart }) {
     </div>
   );
 }
+
