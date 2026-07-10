@@ -8,12 +8,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-8 mb-12">
           
           <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="text-2xl font-bold flex items-center space-x-2 mb-4">
-              <span className="text-blue-600 dark:text-blue-400">Fresh</span>
-              <span className="text-gray-900 dark:text-white">Mart</span>
+            <Link to="/" className="text-2xl font-black flex items-center gap-0.5 mb-4">
+              <span className="text-indigo-600 dark:text-indigo-400">Style</span>
+              <span className="text-gray-900 dark:text-white">Store</span>
             </Link>
             <p className="text-sm leading-relaxed mb-6">
-              Your one-stop shop for fresh groceries, daily essentials, and premium ingredients delivered straight to your door.
+              Your one-stop shop for premium electronics, fashion, jewelry, and sneakers delivered straight to your door.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors bg-gray-100 dark:bg-gray-800 p-2 rounded-full font-bold text-xs">FB</a>
@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-200 dark:border-gray-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-sm">
-          <p>&copy; {new Date().getFullYear()} FreshMart. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Style Store. All rights reserved.</p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <span className="flex items-center gap-1 font-medium"><span className="text-xl">💳</span> Secure Payments</span>
           </div>

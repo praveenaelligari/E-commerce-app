@@ -6,6 +6,7 @@ export default function ChatbotFab() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([{ text: "Hi there! 👋 How can I help you today?", isBot: true }]);
   const [input, setInput] = useState('');
+  const [chatStage, setChatStage] = useState(0);
 
   const handleSend = (e) => {
     e.preventDefault();
@@ -14,9 +15,21 @@ export default function ChatbotFab() {
     setMessages([...messages, { text: input, isBot: false }]);
     setInput('');
     
-    setTimeout(() => {
-      setMessages(prev => [...prev, { text: "Thanks for reaching out! Our agents are currently offline, but please leave your email and we'll get back to you shortly.", isBot: true }]);
-    }, 1000);
+    if (chatStage === 0) {
+      setTimeout(() => {
+        setMessages(prev => [...prev, { text: "Thanks for reaching out! Our agents are currently offline, but please leave your email and we'll get back to you shortly.", isBot: true }]);
+        setChatStage(1);
+      }, 1000);
+    } else if (chatStage === 1) {
+      setTimeout(() => {
+        setMessages(prev => [...prev, { text: "Ok, I received the email! We will get back to you as soon as possible.", isBot: true }]);
+        setChatStage(2);
+      }, 1000);
+    } else {
+      setTimeout(() => {
+        setMessages(prev => [...prev, { text: "Thank you! We have your details and will be in touch.", isBot: true }]);
+      }, 1000);
+    }
   };
 
   return (
@@ -37,7 +50,7 @@ export default function ChatbotFab() {
                   <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-400 rounded-full border-2 border-indigo-600"></div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm">FreshBot Assistant</h3>
+                  <h3 className="font-bold text-sm">StyleBot Assistant</h3>
                   <p className="text-xs text-white/80">Online</p>
                 </div>
               </div>
