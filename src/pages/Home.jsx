@@ -6,7 +6,9 @@ import { useCart } from '../context/CartContext';
 import toast from 'react-hot-toast';
 
 function ProductCard({ product }) {
-  const { addToCart } = useCart();
+  const { cartItems, addToCart, updateQuantity } = useCart();
+  const cartItem = cartItems.find(item => item.id === product.id);
+  
   return (
     <motion.div
       whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(0,0,0,0.12)' }}
@@ -43,13 +45,33 @@ function ProductCard({ product }) {
               <span className="ml-2 text-xs text-gray-400 line-through">₹{product.originalPrice.toLocaleString()}</span>
             )}
           </div>
-          <motion.button
-            whileTap={{ scale: 0.92 }}
-            onClick={() => { addToCart(product); toast.success('Added to cart!'); }}
-            className="w-9 h-9 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full flex items-center justify-center shadow-md shadow-indigo-500/30 transition-colors"
-          >
-            <ShoppingCart size={16} />
-          </motion.button>
+          {cartItem ? (
+            <div className="flex items-center bg-indigo-100 dark:bg-indigo-900/30 rounded-full h-9 w-[90px] justify-between px-1 shadow-inner">
+              <motion.button 
+                whileTap={{ scale: 0.9 }}
+                onClick={() => updateQuantity(product.id, cartItem.quantity - 1)}
+                className="w-7 h-7 rounded-full flex items-center justify-center text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-800/50 transition-colors font-bold text-lg"
+              >
+                -
+              </motion.button>
+              <span className="font-bold text-sm text-indigo-800 dark:text-indigo-300">{cartItem.quantity}</span>
+              <motion.button 
+                whileTap={{ scale: 0.9 }}
+                onClick={() => updateQuantity(product.id, cartItem.quantity + 1)}
+                className="w-7 h-7 rounded-full flex items-center justify-center text-indigo-600 dark:text-indigo-400 hover:bg-indigo-200 dark:hover:bg-indigo-800/50 transition-colors font-bold text-lg"
+              >
+                +
+              </motion.button>
+            </div>
+          ) : (
+            <motion.button
+              whileTap={{ scale: 0.92 }}
+              onClick={() => { addToCart(product); toast.success('Added to cart!'); }}
+              className="w-9 h-9 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full flex items-center justify-center shadow-md shadow-indigo-500/30 transition-colors shrink-0"
+            >
+              <ShoppingCart size={16} />
+            </motion.button>
+          )}
         </div>
       </div>
     </motion.div>
