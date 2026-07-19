@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-200 dark:border-gray-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Style Store. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Style Store. Designed by <a href="https://my-portfolio-36.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">Praveena</a>. All rights reserved.</p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <span className="flex items-center gap-1 font-medium"><span className="text-xl">💳</span> Secure Payments</span>
           </div>
