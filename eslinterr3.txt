@@ -1,9 +1,0 @@
-﻿
-D:\html files\ecommerce-react\src\pages\Auth.jsx
-  1:8  error  'React' is defined but never used  no-unused-vars
-
-D:\html files\ecommerce-react\src\pages\Contact.jsx
-  1:8  error  'React' is defined but never used  no-unused-vars
-
-Γ£û 2 problems (2 errors, 0 warnings)
-
